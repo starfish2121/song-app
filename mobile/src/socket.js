@@ -1,15 +1,19 @@
 import { io } from 'socket.io-client';
 import { Platform } from 'react-native';
 
-// LAN IP for Android physical devices, 10.0.2.2 for Android emulators
+// Production Render backend URL
+const PROD_URL = 'https://song-app-wtjd.onrender.com';
 const LAN_HOST = '192.168.0.227';
 
 const getSocketUrl = () => {
   if (Platform.OS === 'web' && typeof window !== 'undefined') {
     const hostname = window.location.hostname || 'localhost';
-    return `http://${hostname}:4000`;
+    return hostname === 'localhost' ? 'http://localhost:4000' : PROD_URL;
   }
-  return `http://${LAN_HOST}:4000`;
+  if (typeof __DEV__ !== 'undefined' && __DEV__) {
+    return `http://${LAN_HOST}:4000`;
+  }
+  return PROD_URL;
 };
 
 export const SERVER_URL = getSocketUrl();

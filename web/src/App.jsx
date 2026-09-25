@@ -25,7 +25,11 @@ import {
 } from 'lucide-react';
 import './App.css';
 
-const SERVER_URL = window.location.hostname === 'localhost' ? 'http://localhost:4000' : window.location.origin;
+const SERVER_URL = window.location.hostname === 'localhost'
+  ? 'http://localhost:4000'
+  : (window.location.origin.includes('vercel.app') || window.location.origin.includes('pages.dev') || window.location.origin.includes('github.io')
+      ? 'https://song-app-wtjd.onrender.com'
+      : window.location.origin);
 
 export default function App() {
   const [socket, setSocket] = useState(null);
