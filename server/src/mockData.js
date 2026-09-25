@@ -1,0 +1,210 @@
+const INITIAL_SONGS = [
+  {
+    "id": "song-1",
+    "title": "Blinding Lights",
+    "artist": "The Weeknd",
+    "album": "After Hours",
+    "albumArt": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/6f/bc/e6/6fbce6c4-c38c-72d8-4fd0-66cfff32f679/20UMGIM12176.rgb.jpg/600x600bb.jpg",
+    "durationMs": 200046,
+    "genre": "R&B/Soul",
+    "vibe": "Late Night Euphoria",
+    "color": "#ff007f",
+    "spotifyUrl": "https://open.spotify.com/search/Blinding%20Lights%20The%20Weeknd",
+    "youtubeMusicUrl": "https://music.youtube.com/search?q=Blinding%20Lights%20The%20Weeknd",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/19/d6/60/19d660ff-e3a9-8377-15a3-ce4b28e89cac/mzaf_18422426156481158187.plus.aac.p.m4a",
+    "activeListeners": 4
+  },
+  {
+    "id": "song-2",
+    "title": "Starboy (feat. Daft Punk)",
+    "artist": "The Weeknd",
+    "album": "Starboy",
+    "albumArt": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/b5/92/bb/b592bb72-52e3-e756-9b26-9f56d08f47ab/16UMGIM67864.rgb.jpg/600x600bb.jpg",
+    "durationMs": 230461,
+    "genre": "R&B/Soul",
+    "vibe": "Dark Cyberpunk Energy",
+    "color": "#00d2ff",
+    "spotifyUrl": "https://open.spotify.com/search/Starboy%20(feat.%20Daft%20Punk)%20The%20Weeknd",
+    "youtubeMusicUrl": "https://music.youtube.com/search?q=Starboy%20(feat.%20Daft%20Punk)%20The%20Weeknd",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/11/71/d6/1171d6ad-3c96-e027-2af6-58028426588c/mzaf_15137631797407745471.plus.aac.p.m4a",
+    "activeListeners": 3
+  },
+  {
+    "id": "song-3",
+    "title": "Cruel Summer",
+    "artist": "Taylor Swift",
+    "album": "Lover",
+    "albumArt": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/49/3d/ab/493dab54-f920-9043-6181-80993b8116c9/19UMGIM53909.rgb.jpg/600x600bb.jpg",
+    "durationMs": 178426,
+    "genre": "Pop",
+    "vibe": "Golden Hour Anthem",
+    "color": "#ff758c",
+    "spotifyUrl": "https://open.spotify.com/search/Cruel%20Summer%20Taylor%20Swift",
+    "youtubeMusicUrl": "https://music.youtube.com/search?q=Cruel%20Summer%20Taylor%20Swift",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/44/af/81/44af8168-9609-1b85-5048-ada08dceacf3/mzaf_1341699644335558812.plus.aac.p.m4a",
+    "activeListeners": 6
+  },
+  {
+    "id": "song-4",
+    "title": "As It Was",
+    "artist": "Harry Styles",
+    "album": "Harry's House",
+    "albumArt": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/2a/19/fb/2a19fb85-2f70-9e44-f2a9-82abe679b88e/886449990061.jpg/600x600bb.jpg",
+    "durationMs": 167303,
+    "genre": "Pop",
+    "vibe": "Bittersweet Nostalgia",
+    "color": "#f6d365",
+    "spotifyUrl": "https://open.spotify.com/search/As%20It%20Was%20Harry%20Styles",
+    "youtubeMusicUrl": "https://music.youtube.com/search?q=As%20It%20Was%20Harry%20Styles",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/67/10/16/67101606-3869-ca44-6c03-e13d6322cb51/mzaf_1135399237022217274.plus.aac.p.m4a",
+    "activeListeners": 2
+  },
+  {
+    "id": "song-5",
+    "title": "Flowers",
+    "artist": "Miley Cyrus",
+    "album": "Endless Summer Vacation",
+    "albumArt": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/8c/67/ff/8c67ff91-31c3-3fef-1884-ce3ec89f3af4/196589946874.jpg/600x600bb.jpg",
+    "durationMs": 200600,
+    "genre": "Pop",
+    "vibe": "Empowerment & Sunshine",
+    "color": "#ff9a9e",
+    "spotifyUrl": "https://open.spotify.com/search/Flowers%20Miley%20Cyrus",
+    "youtubeMusicUrl": "https://music.youtube.com/search?q=Flowers%20Miley%20Cyrus",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/68/9e/f7/689ef7fe-14fe-a846-c87f-7d3b2d6344b1/mzaf_4167137058064023087.plus.aac.p.m4a",
+    "activeListeners": 5
+  },
+  {
+    "id": "song-6",
+    "title": "Levitating",
+    "artist": "Dua Lipa",
+    "album": "Future Nostalgia",
+    "albumArt": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/6c/11/d6/6c11d681-aa3a-d59e-4c2e-f77e181026ab/190295092665.jpg/600x600bb.jpg",
+    "durationMs": 203808,
+    "genre": "Pop",
+    "vibe": "Retro Dance Floor",
+    "color": "#a18cd1",
+    "spotifyUrl": "https://open.spotify.com/search/Levitating%20Dua%20Lipa",
+    "youtubeMusicUrl": "https://music.youtube.com/search?q=Levitating%20Dua%20Lipa",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/59/dc/4d/59dc4dda-93ff-8f1c-c536-f005f6ea6af5/mzaf_3066686759813252385.plus.aac.p.m4a",
+    "activeListeners": 3
+  },
+  {
+    "id": "song-7",
+    "title": "Espresso",
+    "artist": "Sabrina Carpenter",
+    "album": "Short n' Sweet",
+    "albumArt": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a1/1c/ca/a11ccab6-7d4c-e041-d028-998bcebeb709/24UMGIM61704.rgb.jpg/600x600bb.jpg",
+    "durationMs": 175459,
+    "genre": "Pop",
+    "vibe": "Caffeinated Flirtation",
+    "color": "#fbc2eb",
+    "spotifyUrl": "https://open.spotify.com/search/Espresso%20Sabrina%20Carpenter",
+    "youtubeMusicUrl": "https://music.youtube.com/search?q=Espresso%20Sabrina%20Carpenter",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/99/da/ff/99daffce-cdde-59c6-5ae0-7f922ce411a8/mzaf_5621292401829922816.plus.aac.p.m4a",
+    "activeListeners": 7
+  },
+  {
+    "id": "song-8",
+    "title": "Good Luck, Babe!",
+    "artist": "Chappell Roan",
+    "album": "Good Luck, Babe! - Single",
+    "albumArt": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/29/a7/c4/29a7c478-351d-25eb-a116-3e68118cdab8/24UMGIM31246.rgb.jpg/600x600bb.jpg",
+    "durationMs": 218424,
+    "genre": "Pop",
+    "vibe": "80s Heartbreak Power",
+    "color": "#84fab0",
+    "spotifyUrl": "https://open.spotify.com/search/Good%20Luck%2C%20Babe!%20Chappell%20Roan",
+    "youtubeMusicUrl": "https://music.youtube.com/search?q=Good%20Luck%2C%20Babe!%20Chappell%20Roan",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c3/6d/4f/c36d4f23-b87f-046d-7a0e-e3e05d180b2a/mzaf_17235999651335214399.plus.aac.p.m4a",
+    "activeListeners": 4
+  },
+  {
+    "id": "song-9",
+    "title": "Not Like Us",
+    "artist": "Kendrick Lamar",
+    "album": "Not Like Us - Single",
+    "albumArt": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/31/3a/3f/313a3fbc-bb8f-80c7-b5a2-e226869a38cd/24UMGIM51924.rgb.jpg/600x600bb.jpg",
+    "durationMs": 274192,
+    "genre": "Hip-Hop/Rap",
+    "vibe": "Unstoppable West Coast",
+    "color": "#fa709a",
+    "spotifyUrl": "https://open.spotify.com/search/Not%20Like%20Us%20Kendrick%20Lamar",
+    "youtubeMusicUrl": "https://music.youtube.com/search?q=Not%20Like%20Us%20Kendrick%20Lamar",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/2d/e0/e8/2de0e874-cd0b-e9a9-e876-76be13a86662/mzaf_12385336780649591409.plus.aac.p.m4a",
+    "activeListeners": 8
+  },
+  {
+    "id": "song-10",
+    "title": "BIRDS OF A FEATHER",
+    "artist": "Billie Eilish",
+    "album": "HIT ME HARD AND SOFT",
+    "albumArt": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/92/9f/69/929f69f1-9977-3a44-d674-11f70c852d1b/24UMGIM36186.rgb.jpg/600x600bb.jpg",
+    "durationMs": 210373,
+    "genre": "Alternative",
+    "vibe": "Soulmate Devotion",
+    "color": "#48c6ef",
+    "spotifyUrl": "https://open.spotify.com/search/BIRDS%20OF%20A%20FEATHER%20Billie%20Eilish",
+    "youtubeMusicUrl": "https://music.youtube.com/search?q=BIRDS%20OF%20A%20FEATHER%20Billie%20Eilish",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/34/31/d3/3431d34e-847f-5d66-df83-0bce688d997e/mzaf_18106743962423782018.plus.aac.p.m4a",
+    "activeListeners": 9
+  }
+];
+
+const SIMULATED_LISTENERS = [
+  {
+    id: "sim-1",
+    name: "Maya Patel",
+    username: "@mayavibes",
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80",
+    bio: "Late night coder & synthwave addict 🎧",
+    source: "spotify",
+    favoriteGenres: ["Synthwave", "Indie Pop", "Electronic"],
+    city: "San Francisco, CA"
+  },
+  {
+    id: "sim-2",
+    name: "Liam Chen",
+    username: "@liam_sound",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80",
+    bio: "Music producer | YouTube Music lover 🎹",
+    source: "youtube",
+    favoriteGenres: ["Nu-Disco", "R&B", "House"],
+    city: "Seattle, WA"
+  },
+  {
+    id: "sim-3",
+    name: "Elena Rostova",
+    username: "@elena_beats",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80",
+    bio: "Obsessed with basslines & 80s revivals ⚡",
+    source: "spotify",
+    favoriteGenres: ["Pop", "Synth Pop", "Alt Rock"],
+    city: "London, UK"
+  },
+  {
+    id: "sim-4",
+    name: "Marcus Johnson",
+    username: "@marcus_j",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80",
+    bio: "Hip-hop head & late evening runner 🏃‍♂️",
+    source: "youtube",
+    favoriteGenres: ["Hip-Hop", "Funk", "Lo-Fi"],
+    city: "Chicago, IL"
+  },
+  {
+    id: "sim-5",
+    name: "Chloe Dupont",
+    username: "@chloed",
+    avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&auto=format&fit=crop&q=80",
+    bio: "Living in headphones 24/7 ✨",
+    source: "spotify",
+    favoriteGenres: ["Indie", "Dream Pop", "Acoustic"],
+    city: "Paris, France"
+  }
+];
+
+module.exports = {
+  INITIAL_SONGS,
+  SIMULATED_LISTENERS
+};

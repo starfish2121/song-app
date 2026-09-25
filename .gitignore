@@ -1,0 +1,29 @@
+# Dependencies (Crucial: never commit node_modules)
+node_modules/
+mobile/node_modules/
+server/node_modules/
+web/node_modules/
+
+# Environment and sensitive secrets
+.env
+.env.local
+server/.env
+
+# Build artifacts
+dist/
+mobile/dist/
+web/dist/
+build/
+.expo/
+mobile/.expo/
+
+# SQLite Database files (keep schema, ignore local runtime DB)
+server/data/*.db
+server/data/*.db-wal
+server/data/*.db-shm
+*.db
+
+# Logs & OS caches
+*.log
+.DS_Store
+Thumbs.db

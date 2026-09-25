@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  songsync:
+    build: .
+    container_name: songsync-app
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+    environment:
+      - NODE_ENV=production
+      - PORT=4000
+      - JWT_SECRET=change-this-secret-in-production
+    volumes:
+      - songsync-data:/app/server/data
+
+volumes:
+  songsync-data:

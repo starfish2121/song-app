@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "SongSync",
+    "slug": "songsync",
+    "scheme": "songsync",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#090a0f",
+    "primaryColor": "#6366f1",
+    "description": "Connect with people listening to the same song in real time across Spotify and YouTube Music.",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.songsync.app",
+      "infoPlist": {
+        "UIBackgroundModes": ["audio"]
+      }
+    },
+    "android": {
+      "package": "com.songsync.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#090a0f"
+      },
+      "permissions": [
+        "INTERNET",
+        "ACCESS_NETWORK_STATE",
+        "WAKE_LOCK"
+      ]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "single"
+    }
+  }
+}
