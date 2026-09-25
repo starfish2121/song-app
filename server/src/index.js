@@ -129,6 +129,36 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+// Root API landing page
+app.get('/', (req, res) => {
+  res.status(200).send(`
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <title>SongSync API Server</title>
+      <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0a0b0e; color: #f3f4f6; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        .card { background: #12141a; border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 32px; max-width: 480px; text-align: center; }
+        .badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(16,185,129,0.15); color: #10b981; font-weight: 600; font-size: 13px; padding: 6px 14px; border-radius: 20px; margin-bottom: 16px; }
+        .dot { width: 8px; height: 8px; border-radius: 4px; background: #10b981; }
+        h1 { margin: 0 0 8px; font-size: 24px; }
+        p { color: #8b92a4; margin: 0 0 20px; font-size: 14px; line-height: 1.5; }
+        a { color: #818cf8; text-decoration: none; font-weight: 600; }
+      </style>
+    </head>
+    <body>
+      <div class="card">
+        <div class="badge"><span class="dot"></span> Online & Operational</div>
+        <h1>SongSync Backend API</h1>
+        <p>Real-time audio synchronization service for Spotify & YouTube Music.</p>
+        <p><a href="/api/health">Check API Health Status (/api/health)</a></p>
+      </div>
+    </body>
+    </html>
+  `);
+});
+
 // Authentication routes
 app.post('/api/auth/register', (req, res) => {
   try {
@@ -397,35 +427,6 @@ app.get('/api/stats', (req, res) => {
   });
 });
 
-// Root API landing page
-app.get('/', (req, res) => {
-  res.send(`
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="utf-8">
-      <title>SongSync API Server</title>
-      <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0a0b0e; color: #f3f4f6; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
-        .card { background: #12141a; border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 32px; max-width: 480px; text-align: center; }
-        .badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(16,185,129,0.15); color: #10b981; font-weight: 600; font-size: 13px; padding: 6px 14px; border-radius: 20px; margin-bottom: 16px; }
-        .dot { width: 8px; height: 8px; border-radius: 4px; background: #10b981; }
-        h1 { margin: 0 0 8px; font-size: 24px; }
-        p { color: #8b92a4; margin: 0 0 20px; font-size: 14px; line-height: 1.5; }
-        a { color: #818cf8; text-decoration: none; font-weight: 600; }
-      </style>
-    </head>
-    <body>
-      <div class="card">
-        <div class="badge"><span class="dot"></span> Online & Operational</div>
-        <h1>SongSync Backend API</h1>
-        <p>Real-time audio synchronization service for Spotify & YouTube Music.</p>
-        <p><a href="/api/health">Check API Health Status (/api/health)</a></p>
-      </div>
-    </body>
-    </html>
-  `);
-});
 
 // 404 handler for unknown routes
 app.use((req, res) => {
