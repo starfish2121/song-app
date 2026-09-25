@@ -39,13 +39,6 @@ const io = new Server(server, {
 app.use(cors());
 app.use(express.json());
 
-// Serve static web app build if available
-const clientDistPath = path.join(__dirname, '../../web/dist');
-const htmlIndexPath = path.join(clientDistPath, 'index.html');
-if (fs.existsSync(clientDistPath)) {
-  app.use(express.static(clientDistPath));
-}
-
 // In-memory active presence map
 // roomKey -> { song, listeners: [ { socketId, userId, name, username, avatar, source, positionMs, isPlaying, isBot } ] }
 const activeRooms = new Map();
@@ -404,15 +397,8 @@ app.get('/api/stats', (req, res) => {
   });
 });
 
-// SPA routing fallback / Root status
-app.get('*', (req, res, next) => {
-  if (req.path.startsWith('/api')) return next();
-
-  if (fs.existsSync(htmlIndexPath)) {
-    return res.sendFile(htmlIndexPath);
-  }
-
-  // If deployed as a standalone API server (e.g. on Render), return clean API status
+// Root API landing page
+app.get('/', (req, res) => {
   res.send(`
     <!DOCTYPE html>
     <html lang="en">
@@ -439,6 +425,14 @@ app.get('*', (req, res, next) => {
     </body>
     </html>
   `);
+});
+
+// 404 handler for unknown routes
+app.use((req, res) => {
+  if (req.path.startsWith('/api')) {
+    return res.status(404).json({ error: 'Endpoint not found' });
+  }
+  res.redirect('/');
 });
 
 // --- Real-time Socket.IO Handlers ---
@@ -905,5 +899,5 @@ const PORT = process.env.PORT || 4000;
 server.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 SongSync Server running on http://localhost:${PORT}`);
   console.log(`🎧 Connected music platforms: Spotify & YouTube Music`);
-  console.log(`🌐 Web App available at http://localhost:${PORT}`);
+  console.log(`🌐 API Healthcheck at http://localhost:${PORT}/api/health`);
 });
